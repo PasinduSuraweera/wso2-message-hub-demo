@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="PaymentServiceEndpoint" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="post" uri-template="http://localhost:8082/payments">
+        <timeout>
+            <duration>30000</duration>
+            <responseAction>fault</responseAction>
+        </timeout>
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>3</retriesBeforeSuspension>
+            <retryDelay>1000</retryDelay>
+        </markForSuspension>
+    </http>
+</endpoint>

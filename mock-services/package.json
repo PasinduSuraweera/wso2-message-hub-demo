@@ -1,0 +1,22 @@
+{
+  "name": "messagehub-mock-services",
+  "version": "1.0.0",
+  "description": "Mock backend services for WSO2 MI Message Hub testing",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"node order-service.js\" \"node payment-service.js\"",
+    "order": "node order-service.js",
+    "payment": "node payment-service.js",
+    "test": "node test-services.js"
+  },
+  "keywords": ["wso2", "mock", "services", "integration", "testing"],
+  "author": "Pasindu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "axios": "^1.6.0"
+  }
+}

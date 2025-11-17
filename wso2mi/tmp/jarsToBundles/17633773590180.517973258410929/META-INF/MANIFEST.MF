@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+DynamicImport-Package: *
+Bundle-ManifestVersion: 2
+Bundle-Name: org.wso2.micro.integrator.utils_4.5.0
+Bundle-SymbolicName: org.wso2.micro.integrator.utils_4.5.0
+Bundle-Version: 1.0.0
+Export-Package: org.wso2.micro.integrator.utils,org.wso2.micro.integrato
+ r.utils.utils
+Bundle-ClassPath: .,org.wso2.micro.integrator.utils-4.5.0.jar
+

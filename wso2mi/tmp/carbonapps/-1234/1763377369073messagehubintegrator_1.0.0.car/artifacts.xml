@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="messagehubintegrator" version="1.0.0" type="carbon/application">
+        <dependency artifact="MessageHubAPI" version="1.0.0" include="true" serverRole="EnterpriseIntegrator"/>
+        <dependency artifact="OrderServiceEndpoint" version="1.0.0" include="true" serverRole="EnterpriseIntegrator"/>
+        <dependency artifact="PaymentServiceEndpoint" version="1.0.0" include="true" serverRole="EnterpriseIntegrator"/>
+        <dependency artifact="config" version="1.0.0" include="true" serverRole="EnterpriseIntegrator"/>
+        <dependency artifact="mi-connector-http" version="0.1.14" include="true" serverRole="EnterpriseIntegrator"/>
+    </artifact>
+</artifacts>

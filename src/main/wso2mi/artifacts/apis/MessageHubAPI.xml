@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/hub" name="MessageHubAPI" xmlns="http://ws.apache.org/ns/synapse">
+    
+    <!-- Health Check Endpoint -->
+    <resource methods="GET" uri-template="/health">
+        <inSequence>
+            <log level="custom">
+                <property name="MESSAGE" value="=== Health Check Requested ==="/>
+            </log>
+            
+            <payloadFactory media-type="json">
+                <format>{
+                    "status": "healthy",
+                    "service": "WSO2-MI-MessageHub",
+                    "timestamp": "$1",
+                    "version": "1.0.0",
+                    "uptime": "running"
+                }</format>
+                <args>
+                    <arg expression="get-property('SYSTEM_DATE', 'yyyy-MM-dd HH:mm:ss')"/>
+                </args>
+            </payloadFactory>
+            
+            <property name="HTTP_SC" value="200" scope="axis2"/>
+            <respond/>
+        </inSequence>
+    </resource>
+
+    <!-- Message Processing Endpoint -->
+    <resource methods="POST" uri-template="/process">
+        <inSequence>
+            <log level="custom">
+                <property name="MESSAGE" value="=== Processing Incoming Message ==="/>
+                <property name="REQUEST_PAYLOAD" expression="$body"/>
+            </log>
+            
+            <!-- Extract message properties -->
+            <property name="messageType" expression="json-eval($.type)"/>
+            <property name="messageId" expression="json-eval($.id)"/>
+            <property name="priority" expression="json-eval($.priority)"/>
+            
+            <!-- Log extracted values -->
+            <log level="custom">
+                <property name="TYPE" expression="get-property('messageType')"/>
+                <property name="ID" expression="get-property('messageId')"/>
+                <property name="PRIORITY" expression="get-property('priority')"/>
+            </log>
+            
+            <!-- Content-based routing -->
+            <switch source="get-property('messageType')">
+                <case regex="order">
+                    <log level="custom">
+                        <property name="ROUTE" value="Routing to Order Service"/>
+                    </log>
+                    <call>
+                        <endpoint key="OrderServiceEndpoint"/>
+                    </call>
+                </case>
+                <case regex="payment">
+                    <log level="custom">
+                        <property name="ROUTE" value="Routing to Payment Service"/>
+                    </log>
+                    <call>
+                        <endpoint key="PaymentServiceEndpoint"/>
+                    </call>
+                </case>
+                <default>
+                    <log level="custom">
+                        <property name="ROUTE" value="Unknown message type - returning error"/>
+                    </log>
+                    <payloadFactory media-type="json">
+                        <format>{
+                            "error": "Unknown message type",
+                            "type": "$1",
+                            "supportedTypes": ["order", "payment"],
+                            "timestamp": "$2"
+                        }</format>
+                        <args>
+                            <arg expression="get-property('messageType')"/>
+                            <arg expression="get-property('SYSTEM_DATE', 'yyyy-MM-dd HH:mm:ss')"/>
+                        </args>
+                    </payloadFactory>
+                    <property name="HTTP_SC" value="400" scope="axis2"/>
+                </default>
+            </switch>
+            
+            <respond/>
+        </inSequence>
+        
+        <!-- Error handling sequence -->
+        <faultSequence>
+            <log level="custom">
+                <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
+                <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
+            </log>
+            
+            <payloadFactory media-type="json">
+                <format>{
+                    "status": "error",
+                    "message": "Failed to process message",
+                    "error": "$1",
+                    "timestamp": "$2"
+                }</format>
+                <args>
+                    <arg expression="get-property('ERROR_MESSAGE')"/>
+                    <arg expression="get-property('SYSTEM_DATE', 'yyyy-MM-dd HH:mm:ss')"/>
+                </args>
+            </payloadFactory>
+            
+            <property name="HTTP_SC" value="500" scope="axis2"/>
+            <respond/>
+        </faultSequence>
+    </resource>
+    
+    <!-- Batch Processing Endpoint -->
+    <resource methods="POST" uri-template="/batch">
+        <inSequence>
+            <log level="custom">
+                <property name="MESSAGE" value="=== Batch Processing Started ==="/>
+            </log>
+            
+            <!-- Process each item in the batch -->
+            <property name="batchSize" expression="count(//items)"/>
+            
+            <log level="custom">
+                <property name="BATCH_SIZE" expression="get-property('batchSize')"/>
+            </log>
+            
+            <payloadFactory media-type="json">
+                <format>{
+                    "status": "batch_processed",
+                    "itemsReceived": "$1",
+                    "timestamp": "$2",
+                    "message": "Batch processing completed successfully"
+                }</format>
+                <args>
+                    <arg expression="get-property('batchSize')"/>
+                    <arg expression="get-property('SYSTEM_DATE', 'yyyy-MM-dd HH:mm:ss')"/>
+                </args>
+            </payloadFactory>
+            
+            <respond/>
+        </inSequence>
+    </resource>
+</api>
