@@ -32,16 +32,16 @@ This project demonstrates **enterprise-grade message integration** using WSO2 Mi
 
 ```mermaid
 graph LR
-    A[Client Applications] -->|POST /hub/process| B[WSO2 MI Message Hub]
+    A[Client Applications] -->|POST request| B[WSO2 MI Message Hub]
     B -->|Content-Based Routing| C{Message Type}
-    C -->|type: order| D[Order Service Port 8081]
-    C -->|type: payment| E[Payment Service Port 8082]
+    C -->|order| D[Order Service Port 8081]
+    C -->|payment| E[Payment Service Port 8082]
     
-    D -->|Order Response| F[Unified Response]
-    E -->|Payment Response| F
+    D -->|Response| F[Unified Response]
+    E -->|Response| F
     
-    B -->|Health Check| G[/hub/health]
-    B -->|Batch Processing| H[/hub/batch]
+    B -->|Health Check| G[Health Endpoint]
+    B -->|Batch Processing| H[Batch Endpoint]
     
     style B fill:#f9f,stroke:#333,stroke-width:2px
     style C fill:#bbf,stroke:#333,stroke-width:2px
