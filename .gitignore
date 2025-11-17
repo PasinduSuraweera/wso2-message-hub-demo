@@ -42,4 +42,10 @@ buildNumber.properties
 ## Miscellaneous
 ##############################
 *.log
+
+##############################
+## Portfolio and Demo Files
+##############################
+DEMO_SCRIPT.md
+PORTFOLIO_SUMMARY.md
 		
