@@ -363,12 +363,6 @@ sequenceDiagram
 
 ## 📚 Documentation
 
-### Project Documentation
-- **[ARCHITECTURE.md](ARCHITECTURE.md)**: Detailed system design documentation
-- **[SETUP.md](SETUP.md)**: Complete installation and configuration guide
-- **[API.md](API.md)**: Comprehensive API documentation with examples
-- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)**: Common issues and solutions
-
 ### WSO2 MI Configuration
 - **MessageHubAPI.xml**: Main API definition and routing logic
 - **OrderServiceEndpoint.xml**: Order service endpoint configuration
