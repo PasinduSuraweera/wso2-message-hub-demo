@@ -15,20 +15,20 @@
 
 ---
 
-## 🏆 Project Overview
+## Project Overview
 
 This project demonstrates **enterprise-grade message integration** using WSO2 Micro Integrator, showcasing intelligent content-based routing, service orchestration, and enterprise integration patterns. Built as a comprehensive example of modern ESB (Enterprise Service Bus) architecture.
 
-### 🎯 Key Achievements
+### Key Achievements
 
-- ✅ **Content-Based Routing**: Intelligent message routing based on message type
-- ✅ **Service Orchestration**: Seamless backend service coordination  
-- ✅ **Enterprise Patterns**: Message Hub, Content Router, Service Orchestration
-- ✅ **Production Patterns**: Health monitoring, error handling, batch processing
-- ✅ **100% Test Coverage**: Comprehensive automated test suite (7/7 passing)
-- ✅ **Sub-100ms Routing**: High-performance message processing
+- **Content-Based Routing**: Intelligent message routing based on message type
+- **Service Orchestration**: Seamless backend service coordination  
+- **Enterprise Patterns**: Message Hub, Content Router, Service Orchestration
+- **Production Patterns**: Health monitoring, error handling, batch processing
+- **100% Test Coverage**: Comprehensive automated test suite (7/7 passing)
+- **Sub-100ms Routing**: High-performance message processing
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 graph LR
@@ -47,7 +47,7 @@ graph LR
     style C fill:#bbf,stroke:#333,stroke-width:2px
 ```
 
-### 📊 System Components
+### System Components
 
 | Component | Technology | Purpose | Performance |
 |-----------|------------|---------|-------------|
@@ -57,7 +57,7 @@ graph LR
 | **Content Router** | WSO2 MI Switch Mediator | Message Type Detection | Real-time routing |
 | **Health Monitor** | Custom Health Check | Service Status Monitoring | 99.9% availability |
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Java 11+ (for WSO2 MI)
@@ -85,42 +85,42 @@ node comprehensive-test.js
 
 ### Expected Output
 ```bash
-✅ Health Check: Service operational
-✅ Order Routing: Messages routed to Order Service  
-✅ Payment Routing: Messages routed to Payment Service
-✅ Batch Processing: Mixed messages processed correctly
-✅ Error Handling: Invalid messages handled gracefully
-✅ Performance: All responses <200ms
-✅ Integration Test Suite: 7/7 tests passed
+Health Check: Service operational
+Order Routing: Messages routed to Order Service  
+Payment Routing: Messages routed to Payment Service
+Batch Processing: Mixed messages processed correctly
+Error Handling: Invalid messages handled gracefully
+Performance: All responses <200ms
+Integration Test Suite: 7/7 tests passed
 ```
 
-## ⚡ Features
+## Features
 
-### 🔄 Enterprise Integration Patterns
+### Enterprise Integration Patterns
 - **Content-Based Router**: Routes messages based on `type` field
 - **Message Hub**: Central integration point for multiple services
 - **Service Orchestration**: Coordinates multiple backend services
 - **Message Transformation**: JSON structure preservation and enhancement
 
-### 🎯 Production-Ready Capabilities
+### Production-Ready Capabilities
 - **Health Monitoring**: Real-time service health checks
 - **Error Handling**: Comprehensive error responses with proper HTTP codes
 - **Batch Processing**: Efficient handling of multiple messages
 - **Request Logging**: Complete audit trail of message processing
 
-### 📈 Performance & Reliability
+### Performance & Reliability
 - **High Throughput**: Handles concurrent message processing
 - **Low Latency**: <100ms routing overhead
 - **Fault Tolerance**: Graceful degradation on service failures
 - **Scalability**: Horizontal scaling support
 
-### 🛡️ Enterprise Security
+### Enterprise Security
 - **Input Validation**: Message structure validation
 - **Error Masking**: Secure error message responses
 - **Audit Logging**: Complete request/response logging
 - **Service Isolation**: Backend service protection
 
-## 🔄 Complete Workflow Demonstration
+## Complete Workflow Demonstration
 
 ### 1. System Health Verification
 
@@ -237,7 +237,7 @@ Development: http://localhost:8290/hub
 | `404` | Unknown message type | Unsupported routing |
 | `500` | Backend service error | Service unavailable |
 
-## 📈 Testing Results
+## Testing Results
 
 ### Automated Test Suite Results
 ```bash
@@ -246,13 +246,13 @@ $ node comprehensive-test.js
 MessageHub Integration Test Suite
 ==================================
 
-✅ Health Check Test                    PASSED  (98ms)
-✅ Order Message Routing Test           PASSED  (187ms)  
-✅ Payment Message Routing Test         PASSED  (162ms)
-✅ Unknown Message Type Test            PASSED  (45ms)
-✅ Batch Processing Test                PASSED  (312ms)
-✅ Performance Test                     PASSED  (156ms)
-✅ Error Handling Test                  PASSED  (78ms)
+Health Check Test                    PASSED  (98ms)
+Order Message Routing Test           PASSED  (187ms)  
+Payment Message Routing Test         PASSED  (162ms)
+Unknown Message Type Test            PASSED  (45ms)
+Batch Processing Test                PASSED  (312ms)
+Performance Test                     PASSED  (156ms)
+Error Handling Test                  PASSED  (78ms)
 
 ==================================
 All 7 tests passed! ✨
@@ -261,24 +261,24 @@ Total execution time: 1.038 seconds
 
 ### Performance Metrics
 ```bash
-📊 Message Throughput: 50+ messages/second
-⚡ Average Latency: 156ms end-to-end
-📈 Peak Memory Usage: 125MB
-🔄 Zero Message Loss: 100% reliability
-✅ Service Uptime: 99.9% availability
+Message Throughput: 50+ messages/second
+Average Latency: 156ms end-to-end
+Peak Memory Usage: 125MB
+Zero Message Loss: 100% reliability
+Service Uptime: 99.9% availability
 ```
 
 ### Load Testing Results  
 ```bash
-📊 Concurrent Messages: 100
-✅ Successful Routing: 100 (100%)
-🚫 Failed Routing: 0 (0%)
-⚡ Average Response: 168ms
-📈 Memory Footprint: Stable under load
-🔄 Error Rate: 0%
+Concurrent Messages: 100
+Successful Routing: 100 (100%)
+Failed Routing: 0 (0%)
+Average Response: 168ms
+Memory Footprint: Stable under load
+Error Rate: 0%
 ```
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Integration Platform
 - **WSO2 Micro Integrator**: Enterprise integration runtime
@@ -298,7 +298,7 @@ Total execution time: 1.038 seconds
 - **Node.js Testing**: Automated integration testing
 - **Git**: Version control and collaboration
 
-## 🎯 Real-World Applications
+## Real-World Applications
 
 This integration pattern is essential for:
 
@@ -308,27 +308,27 @@ This integration pattern is essential for:
 - **Supply Chain**: Inventory, shipping, and vendor system coordination
 - **IoT Platforms**: Sensor data routing to analytics and storage systems
 
-## 🏆 Professional Skills Demonstrated
+## Professional Skills Demonstrated
 
 ### Enterprise Integration Expertise
-- ✅ **ESB Architecture**: Complete understanding of message hub patterns
-- ✅ **Content-Based Routing**: Advanced message routing implementation
-- ✅ **Service Orchestration**: Multi-service coordination and management
-- ✅ **Enterprise Patterns**: Industry-standard integration pattern implementation
+- **ESB Architecture**: Complete understanding of message hub patterns
+- **Content-Based Routing**: Advanced message routing implementation
+- **Service Orchestration**: Multi-service coordination and management
+- **Enterprise Patterns**: Industry-standard integration pattern implementation
 
 ### Software Engineering Excellence
-- ✅ **Full-Stack Development**: End-to-end solution development
-- ✅ **Testing Automation**: Comprehensive test suite development
-- ✅ **Documentation**: Professional technical documentation
-- ✅ **Performance Engineering**: High-performance system design
+- **Full-Stack Development**: End-to-end solution development
+- **Testing Automation**: Comprehensive test suite development
+- **Documentation**: Professional technical documentation
+- **Performance Engineering**: High-performance system design
 
 ### DevOps & Operations
-- ✅ **Build Automation**: Maven-based CI/CD pipeline
-- ✅ **Environment Management**: Multi-environment deployment support
-- ✅ **Monitoring & Observability**: Health checks and performance monitoring
-- ✅ **Production Readiness**: Enterprise deployment preparation
+- **Build Automation**: Maven-based CI/CD pipeline
+- **Environment Management**: Multi-environment deployment support
+- **Monitoring & Observability**: Health checks and performance monitoring
+- **Production Readiness**: Enterprise deployment preparation
 
-## 🏗️ Architecture Deep Dive
+## Architecture Deep Dive
 
 ### Message Flow Sequence
 ```mermaid
@@ -361,14 +361,14 @@ sequenceDiagram
 | **Processing** | Backend Services | Execute business logic |
 | **Response** | WSO2 MI | Aggregate and format unified response |
 
-## 📚 Documentation
+## Documentation
 
 ### WSO2 MI Configuration
 - **MessageHubAPI.xml**: Main API definition and routing logic
 - **OrderServiceEndpoint.xml**: Order service endpoint configuration
 - **PaymentServiceEndpoint.xml**: Payment service endpoint configuration
 
-## 🤝 Contributing
+## Contributing
 
 This project serves as a learning resource for WSO2 Micro Integrator concepts. Contributions welcome:
 
@@ -378,11 +378,11 @@ This project serves as a learning resource for WSO2 Micro Integrator concepts. C
 4. **Push to branch** (`git push origin feature/enhancement`)
 5. **Create Pull Request**
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙋‍♂️ Author
+## Author
 
 **Pasindu Suraweera**
 - LinkedIn: [linkedin.com/in/pasindu-suraweera-03s](https://linkedin.com/in/pasindu-suraweera-03s)
